@@ -49,7 +49,7 @@ app.get('/category',(req,res)=>{
 })
 
 // Stores Finder Api
-app.get('/stores',(req,res)=>{
+app.get('/store',(req,res)=>{
     let city = Number(req.query.city_id);
     let cityname = req.query.city_name;
     let name = req.query.name;
@@ -70,7 +70,7 @@ app.get('/stores',(req,res)=>{
         query = {name:name}
     }
 
-    db.collection('stores').find(query).toArray((err,result)=>{
+    db.collection('store').find(query).toArray((err,result)=>{
         if(err) throw err;
         res.send(result);
     })
@@ -130,24 +130,24 @@ app.get('/jobs',(req,res)=>{
 app.get('/giftcards/:id',(req,res)=>{
     let card_id=Number(req.params.id);
   
-    db.collection('giftcards').find({"gift_id":card_id}).toArray((err,result)=>{
+    db.collection('giftCards').find({"gift_id":card_id}).toArray((err,result)=>{
         if(err) throw err;
         res.send(result);    
     })
 })
 
 // Gift card based on user's selection
-app.post('/giftcard',(req,res)=>{
+app.post('/giftCards',(req,res)=>{
     console.log(req.body);
-    db.collection('giftcards').find({_id:{$in:req.body}}).toArray((err,result)=>{
+    db.collection('giftCards').find({_id:{$in:req.body}}).toArray((err,result)=>{
         if(err) throw err;
         res.send(result);
     })
 })
 
 // Placing Order For gift cards
-app.post('/giftcardOrder',(req,res)=>{
-    db.collection('giftcardOrders').insert(req.body,(err,result)=>{
+app.post('/giftCardOrder',(req,res)=>{
+    db.collection('giftCards').insert(req.body,(err,result)=>{
         if(err) throw err;
         res.send("Order for gift card successful.");
     })
