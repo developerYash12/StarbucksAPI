@@ -1,22 +1,19 @@
 {
-  "name": "starbucks_clone",
+  "name": "api",
   "version": "1.0.0",
-  "description": "this is starbucks data",
+  "description": "this is starbucks api",
   "main": "index.js",
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js"
   },
-  "keywords": [
-    "node"
-  ],
-  "author": "developerYash12",
+  "author": "DeveloperYash12",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.0",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
-    "mongodb": "^4.7.0"
+    "mongodb": "^4.8.0"
   }
 }

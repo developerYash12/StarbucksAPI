@@ -7,7 +7,7 @@ let mongo = require('mongodb');
 const { query } = require('express');
 let MongoClient = mongo.MongoClient;
 let bodyparser = require('body-parser');
-let cors =require('cors');
+let cors = require('cors');
 // let mongoUrl = process.env.MongoUrl;
 let MongoLiveUrl = process.env.MongoLiveUrl;
 let db;
